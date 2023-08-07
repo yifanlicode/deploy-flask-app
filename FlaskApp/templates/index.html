@@ -1,0 +1,65 @@
+<!-- templates/index.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        .card {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+    </style>
+    <title>API Usage Instructions</title>
+</head>
+
+<body>
+    <div class="container py-5">
+        <h1 class="display-4 mb-4">Interactive APIs with Flask</h1>
+        <h2 class="mb-3">Usage Instructions</h2>
+
+        <!-- Route: /convert -->
+        <div class="card mb-5">
+            <h3 class="card-header">Route: /convert</h3>
+            <div class="card-body">
+                <p class="card-text">
+                    This route uses the Pillow package to convert an image from one format to another. To use this route, make a POST request to /convert with the following parameters:
+                </p>
+                <ul>
+                    <li><strong>image:</strong> The image file to be converted.</li>
+                    <li><strong>output_format:</strong> The desired output format for the image.</li>
+                </ul>
+                <p class="card-text">
+                    The available output formats for images are: JPEG, PNG, and GIF.
+                </p>
+                <h4 class="mt-4">Code Example:</h4>
+                <pre><code>curl -i -X POST -F "image=@/Users/liyifan/Desktop/image.png"
+                    -F "output_format=desired_format" "http://127.0.0.1:5000/convert" </code></pre>
+            </div>
+        </div>
+
+        <!-- Route: /download -->
+        <div class="card">
+            <h3 class="card-header">Route: /download</h3>
+            <div class="card-body">
+                <p class="card-text">
+                    This route allows you to download a YouTube video to the server using the pytube package. To use this route, make a POST request to /download with the following parameter:
+                </p>
+                <ul>
+                    <li><strong>video_url:</strong> The URL of the YouTube video to be downloaded.</li>
+                </ul>
+                <h4 class="mt-4">Code Example:</h4>
+                <pre><code>curl -i -X POST -F "video_url=Youtube video URL" "http://127.0.0.1:5000/download"</code></pre>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
